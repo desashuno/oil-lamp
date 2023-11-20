@@ -9,7 +9,8 @@ class GetList:
     def run(self):
         txt_bible = self.open_file()
         list_bible = self.to_list(txt_bible)
-        self.main.bible=list_bible
+        self.main.bible = list_bible
+        
 
     def open_file(self):
         #try:
@@ -32,3 +33,6 @@ class GetList:
         for i, v in enumerate(list_bible):
             list_bible[i] = v.strip()
         return list_bible
+    
+    def to_dict(self, list_bible):
+        pass

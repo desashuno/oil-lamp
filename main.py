@@ -9,20 +9,16 @@ class Main:
         self.bible = []
         self.start_app()
         
+        
     def start_app(self):
         self.get_list = GetList(self)
         self.search_engine = SearchEngine(self)
-        self.launch_gui()
+        self.tkinter_gui = TkinterGui(self)
+        
         
     def run(self):
         self.get_list.run()
-        
-    def launch_gui(self):
-        self.tkiner_gui = TkinterGui(self)
-        self.tkiner_gui.mainloop()
-
-        
-
+        self.tkinter_gui.mainloop()
 
 if __name__ == '__main__':
     main = Main()
