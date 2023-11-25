@@ -67,29 +67,4 @@ for i in range(0, len(actual_chapter_list), 3):
     only_title_list.append(actual_chapter_list[i])
 #print(only_title_list)
 
-final_dict = {}
-for i in dict_origin:
-    final_dict[i] = []
-#print(final_dict)
 
-
-chapter = 1
-chapter_in_list = 0
-last_book = None
-
-#from the chapter dict adds the list
-for j, value in dict_origin.items():
-    if j == last_book:
-        chapter_in_list += 1
-
-    for i in range(value[0], value[1]):
-        if list_origin[i] == str(only_title_list[chapter_in_list]).title() + ' ' + str(chapter):
-            print(list_origin[i])
-            chapter += 1
-        
-        final_dict[j].append(list_origin[i])
-        last_book = j
-        
-
-print(dict_origin)
-print(final_dict)

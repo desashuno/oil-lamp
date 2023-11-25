@@ -7,6 +7,7 @@ from tkinter_gui import TkinterGui
 class Main:
     def __init__(self):
         self.bible = []
+        self.chapters = ['a', 'b']
         self.start_app()
         
         
@@ -17,7 +18,6 @@ class Main:
         
         
     def run(self):
-        self.get_list.run()
         self.tkinter_gui.mainloop()
 
 if __name__ == '__main__':

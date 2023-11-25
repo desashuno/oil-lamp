@@ -14,7 +14,7 @@ class TkinterGui(tk.Tk):
         
         # select books
         self.label_book = ttk.Label(self, text='Libro', font=("Arial", 12)).pack()
-        self.combobox_book = ttk.Combobox(self, state='readonly', values=self.main.search_engine.bible_chapters)
+        self.combobox_book = ttk.Combobox(self, state='readonly', values=main.chapters)
         self.combobox_book.current(0)
         self.combobox_book.pack()
         
@@ -42,10 +42,13 @@ class TkinterGui(tk.Tk):
         self.label_output.pack()
         
     def search_button(self):
-        #call the serch engine
-        self.text_label_output = self.combobox_book.get()
-        #self.label_output["text"] = self.text_label_output
-        self.engine_response = self.main.search_engine.make_search(self.main.bible, self.text_label_output)
+        
+        user_request = [] 
+        user_request.append(self.combobox_book.get())
+        user_request.append(self.str_chapter_imput.get()) 
+        user_request.append(self.str_versicle_imput.get())
+        
+        self.engine_response = self.main.search_engine.make_search(self.main.bible, user_request)
         self.label_output['text'] = self.engine_response
         
         
