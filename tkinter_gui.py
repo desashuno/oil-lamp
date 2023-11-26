@@ -11,7 +11,7 @@ class TkinterGui(tk.Tk):
         self.geometry('500x250')
         
         self.label_title = ttk.Label(self, text='Buscador de versiculos', font=("Arial", 14)).pack()
-        
+
         # select books
         self.label_book = ttk.Label(self, text='Libro', font=("Arial", 12)).pack()
         self.combobox_book = ttk.Combobox(self, state='readonly', values=main.chapters)

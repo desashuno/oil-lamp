@@ -40,7 +40,6 @@ class GetList:
         for i, value in enumerate(list_bible):
             if value == value.upper() and value != '':
                 chapters.append(value)
-        print(chapters)
         return chapters
 
 
