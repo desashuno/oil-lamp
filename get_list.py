@@ -1,11 +1,23 @@
 import sys
+import os
 
 
 class GetList:
     def __init__(self, main):
         self.main = main
-        self.file_name = 'BIBLIA.txt'
+        name_file = 'BIBLIA.txt'
+        self.file_path = self.get_path(name_file)
+        
         self.run()
+
+    def get_path(self, name_file):
+        if sys.platform == 'win32':
+            try:
+                bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+                file_path = os.path.abspath(os.path.join(bundle_dir, name_file))
+                return file_path
+            except:
+                print('File not found')
 
     def run(self):
         txt_bible = self.open_file()
@@ -15,7 +27,7 @@ class GetList:
 
     def open_file(self):
         #try:
-        file = open(self.file_name, mode='r', encoding='utf-8')
+        file = open(self.file_path, mode='r', encoding='utf-8')
         content = file.read()
         return content
         file.close()

@@ -37,6 +37,16 @@ class TkinterGui(tk.Tk):
         self.button_search['command'] = self.search_button
         self.button_search.pack()
         
+        # button for next versicle
+        self.button_next = ttk.Button(self, text='siguiente')
+        self.button_next['command'] = self.next_button
+        self.button_next.pack()
+
+        # button for back versicle
+        self.button_back = ttk.Button(self, text='anterior')
+        self.button_back['command'] = self.back_button
+        self.button_back.pack()
+
         # label output
         self.label_output = tk.Label(self, text=self.text_label_output, font=("Arial", 14))
         self.label_output.pack()
@@ -51,4 +61,11 @@ class TkinterGui(tk.Tk):
         self.engine_response = self.main.search_engine.make_search(self.main.bible, user_request)
         self.label_output['text'] = self.engine_response
         
-        
+    def next_button(self):
+        user_request = True
+        self.main.search_engine.back_and_next(self.main.bible, user_request)
+
+    def back_button(self):
+        user_request = False
+        self.main.search_engine.back_and_next(self.main.bible, user_request)
+

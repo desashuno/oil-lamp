@@ -20,6 +20,8 @@ class Main:
     def run(self):
         self.tkinter_gui.mainloop()
 
+# the pyinstaller command for build it is:
+#   pyinstaller --windowed --onefile --noconsole --add-data="BIBLIA.txt;." main.py
 if __name__ == '__main__':
     main = Main()
     main.run()
