@@ -17,7 +17,9 @@ class GetList:
                 file_path = os.path.abspath(os.path.join(bundle_dir, name_file))
                 return file_path
             except:
-                print('File not found')
+                print('File not found, using default path')
+                file_path = self.name_file
+                return file_path
 
     def run(self):
         txt_bible = self.open_file()

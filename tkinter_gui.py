@@ -5,13 +5,16 @@ class TkinterGui(tk.Tk):
     def __init__(self, main):
         super().__init__()
         self.main = main
+        self.bible = main.bible
+        self.actual_chapter = self.main.search_engine.actual_chapter
         self.text_label_output = 'buscar'
         
         self.title('Oil lamp')
         self.geometry('500x250')
-        
         self.label_title = ttk.Label(self, text='Buscador de versiculos', font=("Arial", 14)).pack()
+        self.main_page()
 
+    def main_page(self):
         # select books
         self.label_book = ttk.Label(self, text='Libro', font=("Arial", 12)).pack()
         self.combobox_book = ttk.Combobox(self, state='readonly', values=main.chapters)
@@ -57,15 +60,20 @@ class TkinterGui(tk.Tk):
         user_request.append(self.combobox_book.get())
         user_request.append(self.str_chapter_imput.get()) 
         user_request.append(self.str_versicle_imput.get())
-        
-        self.engine_response = self.main.search_engine.make_search(self.main.bible, user_request)
-        self.label_output['text'] = self.engine_response
+        engine_response, self.actual_chapter = self.main.search_engine.make_search(
+                                                    self.bible, user_request, self.actual_chapter)
+        self.label_output['text'] = engine_response
         
     def next_button(self):
         user_request = True
-        self.main.search_engine.back_and_next(self.main.bible, user_request)
+        engine_response, self.actual_chapter = self.main.search_engine.back_and_next(
+                                                    self.bible, user_request, self.actual_chapter)
+        self.label_output['text'] = engine_response
+
 
     def back_button(self):
         user_request = False
-        self.main.search_engine.back_and_next(self.main.bible, user_request)
+        engine_response, self.actual_chapter = self.main.search_engine.back_and_next(
+                                                    self.bible, user_request, self.actual_chapter)
+        self.label_output['text'] = engine_response
 
