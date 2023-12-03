@@ -17,7 +17,7 @@ class TkinterGui(tk.Tk):
     def main_page(self):
         # select books
         self.label_book = ttk.Label(self, text='Libro', font=("Arial", 12)).pack()
-        self.combobox_book = ttk.Combobox(self, state='readonly', values=main.chapters)
+        self.combobox_book = ttk.Combobox(self, state='readonly', values=self.main.chapters)
         self.combobox_book.current(0)
         self.combobox_book.pack()
         

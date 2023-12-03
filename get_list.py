@@ -7,19 +7,26 @@ class GetList:
         self.main = main
         name_file = 'BIBLIA.txt'
         self.file_path = self.get_path(name_file)
-        
+        #self.file_path = name_file
+
         self.run()
 
     def get_path(self, name_file):
+        print(sys.platform)
+        except_mesage = 'File not found, using default path'
         if sys.platform == 'win32':
             try:
                 bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
                 file_path = os.path.abspath(os.path.join(bundle_dir, name_file))
                 return file_path
             except:
-                print('File not found, using default path')
-                file_path = self.name_file
+                print(except_mesage)
+                file_path = name_file
                 return file_path
+        elif sys.platform == 'linux':
+            print(except_mesage)
+            file_path = name_file
+            return file_path
 
     def run(self):
         txt_bible = self.open_file()
