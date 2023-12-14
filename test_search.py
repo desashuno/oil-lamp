@@ -21,6 +21,8 @@ Pato 2
 
 
 Pato 3
+1: es
+2: el
 3: epico, un pato
 '''
 
@@ -66,5 +68,6 @@ for i in range(0, len(actual_chapter_list), 3):
     dict_origin[actual_chapter_list[i]] = [actual_chapter_list[i+1], actual_chapter_list[i+2]]
     only_title_list.append(actual_chapter_list[i])
 #print(only_title_list)
+
 
 

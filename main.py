@@ -1,20 +1,19 @@
 from tkinter import Tk
 from search_engine import SearchEngine
 from get_list import GetList
-from tkinter_gui import TkinterGui
+from ui_code.main_window import MainWindow
 
 
 class Main:
     def __init__(self):
         self.bible = []
         self.chapters = ['a', 'b']
-        self.start_app()
-        
+        self.start_app() 
         
     def start_app(self):
         self.get_list = GetList(self)
         self.search_engine = SearchEngine(self)
-        self.tkinter_gui = TkinterGui(self)
+        self.tkinter_gui = MainWindow(self)
         
         
     def run(self):
